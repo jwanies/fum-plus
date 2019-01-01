@@ -28,3 +28,4 @@
 *.project
 *.settings
 *.prefs
+*.classpath
