@@ -2,8 +2,6 @@ package fum.driver;
 
 import java.io.IOException;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import fum.driver.FumHelper.HttpMethod;
 
 public class FumDriver {
@@ -41,7 +39,7 @@ public class FumDriver {
 	 * @throws JsonMappingException 
 	 * @throws JsonParseException 
 	 */
-	public static void populateDb() throws JsonParseException, JsonMappingException, IOException {
+	public static void populateDb() {
 		String request = "Request: ";
 		String response = "Response: ";
 		
