@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: fum.data.repos.RepositoryIntegrationTests
--------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.487 s - in fum.data.repos.RepositoryIntegrationTests

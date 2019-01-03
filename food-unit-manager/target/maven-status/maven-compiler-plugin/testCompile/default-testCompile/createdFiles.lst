@@ -1,7 +1,0 @@
-fum\controllers\FoodUnitControllerTest.class
-fum\controllers\ProductTypeControllerTest.class
-fum\FoodUnitManagerServiceTest.class
-fum\controllers\LocationControllerTest.class
-fum\TestHelper.class
-fum\data\repos\RepositoryIntegrationTests.class
-fum\FoodUnitManagerServiceTest$FoodUnitManagerServiceTestContextConfiguration.class
