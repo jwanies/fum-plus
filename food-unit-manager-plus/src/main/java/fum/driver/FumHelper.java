@@ -15,22 +15,30 @@ public class FumHelper {
 	private static final String COOKIES_HEADER = "Set-Cookie";
 	private static CookieManager msCookieManager = new CookieManager();
 	
-	public static String sendPostRequest(String requestUrl, String payload) {
+	enum HttpMethod {
+		PUT, POST, GET, DELETE
+	}
+	
+	public static String sendHttpRequest(String requestUrl, String payload, HttpMethod method) {
 	    try {
 	        URL url = new URL(requestUrl);
 	        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 	
-	        connection.setDoInput(true);
+	        
 	        connection.setDoOutput(true);
-	        connection.setRequestMethod("POST");
-	        connection.setRequestProperty("Accept", "application/json");
-	        connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+	        connection.setRequestMethod(method.toString());
 	        if (msCookieManager.getCookieStore().getCookies().size() > 0) {
 	        	connection.setRequestProperty("Cookie", msCookieManager.getCookieStore().getCookies().get(0).toString());
 	        }
-	        OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
-	        writer.write(payload);
-	        writer.close();
+	        
+	        if (method == HttpMethod.POST || method == HttpMethod.PUT) {
+	        	connection.setDoInput(true); 
+	        	connection.setRequestProperty("Accept", "application/json");
+		        connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+		        OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
+		        writer.write(payload);
+		        writer.close();
+	        }
 	        
 	        InputStream inputStream;
 	        int status = connection.getResponseCode();

@@ -22,10 +22,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.PositiveOrZero;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIdentityReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 @Entity
 public class FoodUnit {
 
@@ -40,8 +36,6 @@ public class FoodUnit {
 	@NotNull
     @ManyToOne (optional = false)
     @JoinColumn(name="productTypeId", nullable = false)
-	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="typeName")
-	@JsonIdentityReference(alwaysAsId = true)
     private ProductType productType;
 	
 	@NotBlank

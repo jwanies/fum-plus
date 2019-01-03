@@ -96,4 +96,33 @@ public class FoodUnitManagerService {
 	{
 		return locationRepository.save(newLocation);
 	}
+
+	/**
+	 * Deletes a specific food unit
+	 * 
+	 * @param id The id of the food unit to delete
+	 */
+	public void deleteFoodUnit(long id) {
+		foodUnitRepository.deleteById(id);
+	}
+
+	/**
+	 * Updates the product type identified in the second parameter with the product type in the first parameter.
+	 * Creates the product type with the specified ID if one does not already exist.
+	 * 
+	 * @param newProductType
+	 * @param id The id of the productType to update/create
+	 * @return The updated or newly created product type
+	 */
+	public ProductType updateOrCreateProductType(ProductType newProductType, Long id) {
+		return productTypeRepository.findById(id)
+			.map(productType -> {
+				productType.setTypeName(newProductType.getTypeName());
+				return productTypeRepository.save(productType);
+			})
+			.orElseGet(() -> {
+				newProductType.setId(id);
+				return productTypeRepository.save(newProductType);
+			});
+	}
 }

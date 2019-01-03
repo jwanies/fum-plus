@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -45,6 +46,11 @@ public class FoodUnitController {
 	@GetMapping("/foodUnits/{id}")
 	public FoodUnit one(@PathVariable Long id) {
 		return foodUnitManagerService.findFoodUnitById(id);
+	}
+	
+	@DeleteMapping("/foodUnits/{id}")
+	public void deleteFoodUnit(@PathVariable long id) {
+		foodUnitManagerService.deleteFoodUnit(id);
 	}
 	
 	@PostMapping("/foodUnits")
