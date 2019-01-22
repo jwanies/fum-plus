@@ -43,12 +43,6 @@ public class FoodUnitValidator implements Validator {
 		
 		// validate the type specific attributes
 		validateTypeSpecificAttributes(productType.getAttributes(), newFoodUnit.getTypeSpecificAttributes());
-		
-		/*
-		String errorMessage = validateTypeSpecificAttributes(newFoodUnit.getTypeSpecificAttributes());
-		if (errorMessage != null) {
-			errors.rejectValue("typeSpecificAttributes", errorMessage);
-		}*/
 	}
 
 	private void validateTypeSpecificAttributes(Set<Attributes> expectedAttributes, Map<String, String> typeSpecificAttributes) {
