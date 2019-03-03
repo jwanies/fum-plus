@@ -14,7 +14,7 @@ public class PersonalizedCoupons {
 	
     static List<Map<String, Object>> personalizeCoupons(List<Map<String, Object>> coupons, 
                                                         List<String> preferredCategories) {
-    	
+
     	// create a new list for our results, since we do not want to make changes to the master coupons list that was passed in
     	List<Map<String, Object>> topTenCoupons = coupons.stream()
     			// filter out all coupons that are not in the list of preferred categories
